@@ -1,4 +1,4 @@
-// Scene Data with background colors and titles
+// Scene Data with video, text, title, background colors
 const scenes = [
   { video: 'videos/scene1.mp4', text: '93 million miles away, on the Sun… something amazing happens!', title: 'The Birth of Sunny', bgColor: '#FFEEAD' },
   { video: 'videos/scene2.mp4', text: 'Then, one powerful day, the Sun rumbled… Sunny got the chance of a lifetime.', title: 'The Blast Off', bgColor: '#FFB347' },
@@ -34,6 +34,7 @@ startBtn.addEventListener('click', () => {
 // Play Video on Click
 playBtn.addEventListener('click', () => {
   video.play();
+  video.muted = false; // enable sound
   playBtn.style.display = 'none';
 });
 
@@ -53,6 +54,7 @@ function loadScene() {
   const scene = scenes[currentScene];
   video.src = scene.video;
   video.pause();
+  video.muted = true; // start muted until Play clicked
   playBtn.style.display = 'flex';
   dialogueBox.innerText = scene.text;
   sceneTitle.innerText = scene.title;
